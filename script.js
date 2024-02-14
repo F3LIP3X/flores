@@ -1,11 +1,12 @@
-document.getElementById("showFlowers").addEventListener("click", function() {
+// Función para generar un ramo de flores
+function generateFlowers() {
     var flowerContainer = document.getElementById("flowerContainer");
     flowerContainer.innerHTML = ''; // Limpiar el contenedor de flores
 
     var flowerBouquet = document.createElement("div");
     flowerBouquet.setAttribute("id", "flowerBouquet");
 
-    var numberOfFlowers = 100; // Ajusta el número de flores
+    var numberOfFlowers = 200; // Ajusta el número de flores
     var pastelColors = ["#FFD1DC", "#FFB6C1", "#FFA07A", "#FFDAB9", "#F5DEB3",
      "#87CEEB", "#B0E0E6", "#98FB98", "#FFEC8B", "#FAFAD2"]; // Colores pastel con amarillos más saturados
 
@@ -13,13 +14,10 @@ document.getElementById("showFlowers").addEventListener("click", function() {
         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("class", "flower");
 
-        var angle = Math.random() * 2 * Math.PI;
-        var radius = 200 + Math.random() * 100; // Radio para distribuir las flores en el corazón
+        var x = 300 + 0 * Math.cos(200);
+        var y = 300 + 0 * Math.sin(100);
 
-        var x = 300 + radius * Math.cos(angle);
-        var y = 300 + radius * Math.sin(angle);
-
-        var flowerSize = Math.floor(Math.random() * 101) + 250; // Generar tamaño aleatorio para la flor (entre 300 y 400)
+        var flowerSize = Math.floor(Math.random() * 201) + 300; // Generar tamaño aleatorio para la flor (entre 300 y 400)
 
         // Pétalos de la flor
         for (var j = 0; j < 6; j++) {
@@ -42,7 +40,7 @@ document.getElementById("showFlowers").addEventListener("click", function() {
         centerCircle.setAttribute("class", "centerCircle");
         centerCircle.setAttribute("cx", flowerSize / 2);
         centerCircle.setAttribute("cy", flowerSize / 2);
-        centerCircle.setAttribute("r", flowerSize / 10);
+        centerCircle.setAttribute("r", flowerSize / 12);
         centerCircle.setAttribute("fill", "yellow");
         svg.appendChild(centerCircle);
 
@@ -55,4 +53,9 @@ document.getElementById("showFlowers").addEventListener("click", function() {
     }
 
     flowerContainer.appendChild(flowerBouquet);
+}
+
+// Llamar a la función para generar el ramo de flores cada 2 milisegundos
+document.getElementById("showFlowers").addEventListener("click", function() {
+    setInterval(generateFlowers, 300); // Llama a la función cada 200 milisegundos
 });
