@@ -1,3 +1,7 @@
+/*
+Felipe Toledano para mi vida
+*/
+
 // Función para generar un ramo de flores
 function generateFlowers() {
     var flowerContainer = document.getElementById("flowerContainer");
@@ -55,7 +59,7 @@ function generateFlowers() {
     flowerContainer.appendChild(flowerBouquet);
 }
 
-// Llamar a la función para generar el ramo de flores cada 2 milisegundos
+// Llamar a la función para generar el ramo de flores cada 300 milisegundos
 document.getElementById("showFlowers").addEventListener("click", function() {
-    setInterval(generateFlowers, 300); // Llama a la función cada 200 milisegundos
+    setInterval(generateFlowers, 300); // Llama a la función cada 300 milisegundos
 });
